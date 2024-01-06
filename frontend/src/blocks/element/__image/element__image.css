@@ -1,0 +1,10 @@
+.element__image {
+  width: 282px;
+  height: 282px;
+  background-position: center;
+  background-size: cover;
+}
+
+.element__image:hover {
+  cursor: pointer;
+}
