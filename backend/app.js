@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // Импортируем dotenv
+const cors = require('cors');
 const { errors } = require('celebrate');
 const errorHandler = require('./middlewares/errorHandler');
 const {
@@ -30,6 +31,7 @@ const { PORT } = process.env;
 // const PORT = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.use(requestLogger); // подключаем логгер запросов за ним идут все обработчики роутов
 
