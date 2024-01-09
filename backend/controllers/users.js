@@ -50,7 +50,8 @@ const login = (req, res, next) => {
       const token = generateJwtToken({ id: user._id });
       return res
         .status(http2.constants.HTTP_STATUS_OK)
-        .send({ message: 'Вы успешно вошли', id: user._id, token });
+        // .send({ message: 'Вы успешно вошли', id: user._id, token });
+        .send({ token });
     })
     .catch(next);
 };

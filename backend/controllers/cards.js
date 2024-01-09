@@ -22,6 +22,33 @@ const createCard = (req, res, next) => {
     });
 };
 
+/*
+{
+    "likes": [],
+    "_id": "659da44ea0ca9764939fe475",
+    "name": "Спрингфилд",
+    "link": "https://angliya.com/uploads/4/0/0/4008e52eae5895d77cf2a161800213b7.jpg",
+    "owner": {
+        "name": "Губка Боб",
+        "about": "Житель океана",
+        "avatar": "https://e7.pngegg.com/pngimages/13/178/png-clipart-spongebob-squarepants-illustration-graphy-computer-icons-sponge-bob-cartoon-spongebob-squarepants.png",
+        "_id": "bba7060593119ffd8fc1af1f",
+        "cohort": "cohort-72"
+    },
+    "createdAt": "2024-01-09T19:53:50.222Z"
+}
+
+{
+    "name": "Спрингфилд",
+    "link": "https://angliya.com/uploads/4/0/0/4008e52eae5895d77cf2a161800213b7.jpg",
+    "owner": "659d01684ab418b1a6a65f17",
+    "likes": [],
+    "_id": "659da5203869ff13786ef0a4",
+    "createdAt": "2024-01-09T19:57:20.933Z",
+    "__v": 0
+}
+*/
+
 const getCards = (req, res, next) => {
   CardModel.find()
     .then((data) => {
