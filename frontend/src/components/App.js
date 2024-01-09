@@ -44,6 +44,7 @@ function App() {
   // Проверка залогинен ли пользователь при загрузке страницы
   useEffect(() => {
     handleTokenCheck()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Загрузка карточек с сервера при монтировании компонента
