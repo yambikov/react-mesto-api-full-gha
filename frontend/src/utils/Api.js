@@ -1,5 +1,7 @@
 
 // export default 
+const token = localStorage.getItem("jwt");
+
 class Api {
   constructor(options, cardId) {
     this.baseUrl = options.baseUrl;
@@ -62,18 +64,22 @@ class Api {
 
 }
 
-const apiConfig = new Api(
-  {
-    // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72/',
-    baseUrl: 'http://localhost:3000/',
 
-    // headers: {
-    //   authorization: 'baec5030-e66a-4791-88f5-1a246d578a5b',
-    //   'Content-Type': 'application/json'
-    // }
+const apiConfig = new Api(
+
+  {
+    baseUrl: 'http://localhost:3000/',
+    headers: {
+      authorization: token,
+      'Content-Type': 'application/json'
+    }
   }
-)
+);
+
+console.log(`console.log(apiConfig): ${apiConfig.headers.authorization}`);
+console.log(`token: ${token}`);
 
 export default apiConfig;
-
-
+/*
+const token = localStorage.getItem("jwt")
+*/
