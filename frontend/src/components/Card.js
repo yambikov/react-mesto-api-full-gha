@@ -6,7 +6,7 @@ function Card(props) {
 
   // привязываем контекст
   const currentUser = React.useContext(CurrentUserContext);
-  console.log(`Card.js: currentUser._id: ${currentUser._id}`);
+  // console.log(`Card.js: currentUser._id: ${currentUser._id}`);
 
   // Определяем, являемся ли мы владельцем текущей карточки
   // const isOwn = props.card.owner._id === currentUser._id;
@@ -16,7 +16,7 @@ function Card(props) {
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   // const isLiked = props.card.likes.some(item => item._id === currentUser._id);
   const isLiked = props.card.likes.some(item => item === currentUser._id);
-  console.log(`props.card.likes: ${props.card.likes}`);
+  // console.log(`props.card.likes: ${props.card.likes}`);
 
   // Создаём переменную, которую после зададим в `className` для кнопки лайка
   const cardLikeButtonClassName = (

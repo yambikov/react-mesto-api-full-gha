@@ -73,9 +73,15 @@ function App() {
 
   // Обработчик лайка карточки
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id)
-
-    ;(isLiked ? apiConfig.deleteLike(card._id) : apiConfig.putLike(card._id))
+    const isLiked = card.likes.some((i) => i === currentUser._id);
+    // console.log(`currentUser._id: ${currentUser._id}`);
+    // console.log(`card.likes: ${card.likes}`);
+    // /*
+    //   currentUser._id: 659d01684ab418b1a6a65f17
+    //   App.js:78 card.likes: 652ba3c78f45280218a223f7,659d01684ab418b1a6a65f17
+    // */
+    
+    (isLiked ? apiConfig.deleteLike(card._id) : apiConfig.putLike(card._id))
       .then((res) => {
         setCards((state) => state.map((c) => (c._id === card._id ? res : c)))
       })
