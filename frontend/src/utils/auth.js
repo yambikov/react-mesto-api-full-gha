@@ -8,7 +8,7 @@ export const register = (password, email) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({password, email}),
+    body: JSON.stringify({ password, email }),
   }).then((res) => {
     if (res.ok) {
       return res.json()
@@ -25,7 +25,7 @@ export const login = (password, email) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({password, email}),
+    body: JSON.stringify({ password, email }),
   }).then((res) => {
     if (res.ok) {
       return res.json()
@@ -41,7 +41,7 @@ export const checkToken = (token) => {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+       Authorization: `Bearer ${token}`,
     },
   }).then((res) => {
     if (res.ok) {

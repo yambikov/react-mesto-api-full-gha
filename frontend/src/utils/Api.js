@@ -76,10 +76,8 @@ const apiConfig = new Api(
   }
 );
 
-console.log(`console.log(apiConfig): ${apiConfig.headers.authorization}`);
-console.log(`token: ${token}`);
+// console.log(`console.log(apiConfig): ${apiConfig.headers.authorization}`);
+// console.log(`token: ${token}`);
 
 export default apiConfig;
-/*
-const token = localStorage.getItem("jwt")
-*/
+
