@@ -6,9 +6,12 @@ function Card(props) {
 
   // привязываем контекст
   const currentUser = React.useContext(CurrentUserContext);
+  console.log(`Card.js: currentUser._id: ${currentUser._id}`);
 
   // Определяем, являемся ли мы владельцем текущей карточки
-  const isOwn = props.card.owner._id === currentUser._id;
+  // const isOwn = props.card.owner._id === currentUser._id;
+  const isOwn = props.card.owner === currentUser._id;
+  // console.log(`props.card.owner._id: ${props.card.owner}`);
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = props.card.likes.some(item => item._id === currentUser._id);

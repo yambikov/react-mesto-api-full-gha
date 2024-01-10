@@ -87,6 +87,7 @@ const deleteCard = async (req, res, next) => {
 const addCardLike = (req, res, next) => {
   CardModel.findByIdAndUpdate(
     req.params.cardId,
+    // console.log(req.params.cardId),
     { $addToSet: { likes: req.user.id } }, // добавить _id в массив, если его там нет
     { new: true },
   )
@@ -94,6 +95,7 @@ const addCardLike = (req, res, next) => {
       if (!data) {
         return next(new NotFoundError('Передан несуществующий _id карточки'));
       }
+      console.log(data);
       return res.status(http2.constants.HTTP_STATUS_OK).send(data);
     })
 

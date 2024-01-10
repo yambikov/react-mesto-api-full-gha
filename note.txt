@@ -1,0 +1,55 @@
+POSTMAN
+{
+    "_id": "659e87e59050eb02159cf49a",
+    "name": "Южный парк",
+    "link": "https://static-3.bitchute.com/live/cover_images/1nYz0IPdI32I/qKQ6fd6lCdUb_640x360.jpg",
+    "owner": "659d01684ab418b1a6a65f17",
+    "likes": [
+        "659d01684ab418b1a6a65f17"
+    ],
+    "createdAt": "2024-01-10T12:04:53.509Z",
+    "__v": 0
+}
+
+---
+
+LOCAL
+{
+    "_id": "652d97d0b94d0d3dbe8fe6f5",
+    "name": "Калининград",
+    "link": "link",
+    "owner": "652ba3c78f45280218a223f7",
+    "likes": [
+        "652ba3c78f45280218a223f7",
+        "659d01684ab418b1a6a65f17"
+    ],
+    "createdAt": "2023-10-16T20:06:40.868Z",
+    "__v": 0
+}
+
+---
+
+NOMOREPARTIES
+{
+    "likes": [
+        {
+            "name": "Губка Боб",
+            "about": "Житель океана",
+            "avatar": "https://e7.pngegg.com/pngimages/13/178/png-clipart-spongebob-squarepants-illustration-graphy-computer-icons-sponge-bob-cartoon-spongebob-squarepants.png",
+            "_id": "bba7060593119ffd8fc1af1f",
+            "cohort": "cohort-72"
+        }
+    ],
+    "_id": "659da44ea0ca9764939fe475",
+    "name": "Спрингфилд",
+    "link": "https://angliya.com/uploads/4/0/0/4008e52eae5895d77cf2a161800213b7.jpg",
+    "owner": {
+        "name": "Губка Боб",
+        "about": "Житель океана",
+        "avatar": "https://e7.pngegg.com/pngimages/13/178/png-clipart-spongebob-squarepants-illustration-graphy-computer-icons-sponge-bob-cartoon-spongebob-squarepants.png",
+        "_id": "bba7060593119ffd8fc1af1f",
+        "cohort": "cohort-72"
+    },
+    "createdAt": "2024-01-09T19:53:50.222Z"
+}
+
