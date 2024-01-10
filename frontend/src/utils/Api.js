@@ -64,11 +64,14 @@ class Api {
 
 const apiConfig = new Api(
   {
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72/',
-    headers: {
-      authorization: 'baec5030-e66a-4791-88f5-1a246d578a5b',
-      'Content-Type': 'application/json'
-    }}
+    // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-72/',
+    baseUrl: 'http://localhost:3000/',
+
+    // headers: {
+    //   authorization: 'baec5030-e66a-4791-88f5-1a246d578a5b',
+    //   'Content-Type': 'application/json'
+    // }
+  }
 )
 
 export default apiConfig;

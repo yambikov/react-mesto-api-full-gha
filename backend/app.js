@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv'); // Импортируем dotenv
 const { errors } = require('celebrate');
+const cors = require('cors');
 const errorHandler = require('./middlewares/errorHandler');
 const {
   validateCreateUser,
@@ -27,6 +28,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 const app = express();
 // const { PORT } = process.env;
 const PORT = 3000;
+
+app.use(cors());
 
 app.use(express.json());
 
