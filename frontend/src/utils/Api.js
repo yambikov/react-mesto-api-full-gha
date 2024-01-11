@@ -68,7 +68,8 @@ class Api {
 const apiConfig = new Api(
 
   {
-    baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
+    // baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
+    baseUrl: 'http://localhost:3000/',
     headers: {
       authorization: token,
       'Content-Type': 'application/json'
