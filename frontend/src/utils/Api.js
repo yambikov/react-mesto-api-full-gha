@@ -1,6 +1,6 @@
 // Api.js
 // export default 
-const token = localStorage.getItem("jwt");
+// const token = localStorage.getItem("jwt");
 
 class Api {
   constructor(options, cardId) {
@@ -14,10 +14,14 @@ class Api {
   _makeRequest(url, method, data) {
     const requestOptions = {
       method,
-      headers: this.headers,
+      headers: {
+        ...this.headers,
+        authorization: localStorage.getItem("jwt"),
+        'Content-Type': 'application/json'
+      },
       ...(data ? { body: JSON.stringify(data) } : {})
     };
-
+  
     return fetch(`${this.baseUrl}${url}`, requestOptions)
       .then((res) => {
         if (res.ok) {
@@ -71,7 +75,7 @@ const apiConfig = new Api(
     baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
     // baseUrl: 'http://localhost:3000/',
     headers: {
-      authorization: token,
+      authorization: localStorage.getItem("jwt"),
       'Content-Type': 'application/json'
     }
   }
