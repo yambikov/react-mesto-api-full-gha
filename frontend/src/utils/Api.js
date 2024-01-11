@@ -1,4 +1,4 @@
-
+// Api.js
 // export default 
 const token = localStorage.getItem("jwt");
 
@@ -68,8 +68,8 @@ class Api {
 const apiConfig = new Api(
 
   {
-    // baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
+    // baseUrl: 'http://localhost:3000/',
     headers: {
       authorization: token,
       'Content-Type': 'application/json'

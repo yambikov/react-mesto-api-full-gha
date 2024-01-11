@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from "react"
-import {Routes, Route} from "react-router-dom"
+// App.js
+import React, { useState, useEffect } from "react"
+import { Routes, Route } from "react-router-dom"
 import Header from "./Header"
 import Main from "./Main"
 import Footer from "./Footer"
 import ImagePopup from "./ImagePopup"
 import apiConfig from "../utils/Api"
-import {CurrentUserContext} from "../contexts/CurrentUserContext"
+import { CurrentUserContext } from "../contexts/CurrentUserContext"
 import EditProfilePopup from "./EditProfilePopup"
 import EditAvatarPopup from "./EditAvatarPopup"
 import AddPlacePopup from "./AddPlacePopup"
@@ -16,7 +17,7 @@ import InfoTooltip from "./InfoTooltip"
 import successedImage from "../images/info-tooltip-success.svg"
 import failImage from "../images/info-tooltip-error.svg"
 import * as auth from "../utils/auth"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function App() {
   // State для хранения состояния авторизации
@@ -43,33 +44,72 @@ function App() {
 
   // Проверка залогинен ли пользователь при загрузке страницы
   useEffect(() => {
-    handleTokenCheck()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    handleTokenCheck();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  // Загрузка карточек с сервера при монтировании компонента
   useEffect(() => {
-    apiConfig
-      .getInitialCards()
-      .then((res) => {
-        setCards(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+    if (loggedIn) {
+      apiConfig.getInitialCards()
+        .then((res) => {
+          setCards(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
-  // Загрузка данных о текущем пользователе с сервера
-  useEffect(() => {
-    apiConfig
-      .getUserInfoApi()
-      .then((res) => {
-        setCurrentUser(res)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+      apiConfig.getUserInfoApi()
+        .then((res) => {
+          setCurrentUser(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [loggedIn]);
+
+  // Проверка токена
+  function handleTokenCheck() {
+    if (localStorage.getItem("jwt")) {
+      const token = localStorage.getItem("jwt");
+      auth
+        .checkToken(token)
+        .then((res) => {
+          if (res) {
+            setLoggedIn(true);
+            setEmail(res.email);
+            navigate("/", { replace: true });
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+  }
+
+
+
+  // // Загрузка карточек с сервера при монтировании компонента
+  // useEffect(() => {
+  //   apiConfig
+  //     .getInitialCards()
+  //     .then((res) => {
+  //       setCards(res)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [])
+
+  // // Загрузка данных о текущем пользователе с сервера
+  // useEffect(() => {
+  //   apiConfig
+  //     .getUserInfoApi()
+  //     .then((res) => {
+  //       setCurrentUser(res)
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  // }, [])
 
   // Обработчик лайка карточки
   function handleCardLike(card) {
@@ -178,7 +218,7 @@ function App() {
           localStorage.setItem("jwt", res.token)
           setLoggedIn(true)
           setEmail(email)
-          navigate("/", {replace: true})
+          navigate("/", { replace: true })
         }
       })
       .catch((err) => console.log(err))
@@ -188,7 +228,7 @@ function App() {
     auth
       .register(password, email)
       .then((res) => {
-        navigate("/sign-up", {replace: true})
+        navigate("/sign-up", { replace: true })
         setIsInfoTooltipOpen(true)
         setIsInfoTooltipSuccessed(true)
       })
@@ -199,22 +239,22 @@ function App() {
       })
   }
 
-  // Проверка токена
-  function handleTokenCheck() {
-    if (localStorage.getItem("jwt")) {
-      const token = localStorage.getItem("jwt")
-      auth
-        .checkToken(token)
-        .then((res) => {
-          if (res) {
-            setLoggedIn(true)
-            setEmail(res.email)
-            navigate("/", {replace: true})
-          }
-        })
-        .catch((err) => console.log(err))
-    }
-  }
+  // // Проверка токена
+  // function handleTokenCheck() {
+  //   if (localStorage.getItem("jwt")) {
+  //     const token = localStorage.getItem("jwt")
+  //     auth
+  //       .checkToken(token)
+  //       .then((res) => {
+  //         if (res) {
+  //           setLoggedIn(true)
+  //           setEmail(res.email)
+  //           navigate("/", {replace: true})
+  //         }
+  //       })
+  //       .catch((err) => console.log(err))
+  //   }
+  // }
 
   // Рендеринг компонента
   return (
