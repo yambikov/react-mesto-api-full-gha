@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 10.128.0.26
+IP 158.160.46.181
 
 Frontend https://yambikov.nomoredomainsmonster.ru
 
