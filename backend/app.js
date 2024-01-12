@@ -28,7 +28,7 @@ const NotFoundError = require('./errors/NotFoundErr');
 //   useNewUrlParser: true,
 // }).then(() => {
 //   console.log('Подключено к MongoDB');
-// });
+// });/
 
 mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
