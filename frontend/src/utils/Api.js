@@ -74,10 +74,10 @@ const apiConfig = new Api(
   {
     baseUrl: 'https://api.yambikov.nomoredomainsmonster.ru/',
     // baseUrl: 'http://localhost:3000/',
-    headers: {
-      authorization: localStorage.getItem("jwt"),
-      'Content-Type': 'application/json'
-    }
+    // headers: {
+    //   authorization: localStorage.getItem("jwt"),
+    //   'Content-Type': 'application/json'
+    // }
   }
 );
 
