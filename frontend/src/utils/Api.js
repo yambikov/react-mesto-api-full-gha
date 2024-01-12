@@ -1,6 +1,4 @@
 // Api.js
-// export default 
-// const token = localStorage.getItem("jwt");
 
 class Api {
   constructor(options, cardId) {
@@ -81,8 +79,6 @@ const apiConfig = new Api(
   }
 );
 
-// console.log(`console.log(apiConfig): ${apiConfig.headers.authorization}`);
-// console.log(`token: ${token}`);
 
 export default apiConfig;
 

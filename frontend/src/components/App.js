@@ -85,32 +85,6 @@ function App() {
     }
   }
 
-
-
-  // // Загрузка карточек с сервера при монтировании компонента
-  // useEffect(() => {
-  //   apiConfig
-  //     .getInitialCards()
-  //     .then((res) => {
-  //       setCards(res)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
-  // // Загрузка данных о текущем пользователе с сервера
-  // useEffect(() => {
-  //   apiConfig
-  //     .getUserInfoApi()
-  //     .then((res) => {
-  //       setCurrentUser(res)
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }, [])
-
   // Обработчик лайка карточки
   function handleCardLike(card) {
     const isLiked = card.likes.some((i) => i === currentUser._id);

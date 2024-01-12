@@ -22,22 +22,22 @@ const { isAuthorized } = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./errors/NotFoundErr');
 
-// mongoose.connect(NODE_ENV === 'production' ? MONGODB_URI : 'mongodb://localhost:27017/mestodb', {
+mongoose.connect(NODE_ENV === 'production' ? MONGODB_URI : 'mongodb://localhost:27017/mestodb', {
 // mongoose.connect(process.env.MONGODB_URI, {
-// mongoose.connect('mongodb://localhost:27017/mestodb', {
+ // mongoose.connect('mongodb://localhost:27017/mestodb', {
 //   useNewUrlParser: true,
 // }).then(() => {
 //   console.log('Подключено к MongoDB');
 // });
 
-mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mestodb', {
+// mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
 }).then(() => {
   console.log('Подключено к MongoDB');
 });
 
 const app = express();
-// const { PORT } = process.env;
+// ]]const { PORT } = process.env;
 // const PORT = 3000;
 
 // app.use(cors());
@@ -80,4 +80,3 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`Пример приложения слушает порт ${PORT}`);
 });
-//
