@@ -33,7 +33,7 @@ const {
 //   useNewUrlParser: true,
 // }).then(() => {
 //   console.log('Подключено к MongoDB');
-// });
+// }); //
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
 }).then(() => {
