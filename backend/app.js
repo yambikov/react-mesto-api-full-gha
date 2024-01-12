@@ -13,7 +13,7 @@ const {
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // const { NODE_ENV, MONGODB_URI } = process.env;
-const { MONGODB_URI, PORT } = process.env;
+const { MONGODB_URI, PORT = 3000 } = process.env;
 
 // Загружаем переменные окружения из файла .env
 dotenv.config();
@@ -39,7 +39,6 @@ mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mestodb', {
 const app = express();
 // const { PORT } = process.env;
 // const PORT = 3000;
-// const { PORT = 3000 } = process.env;
 
 // app.use(cors());
 app.use(cors({
