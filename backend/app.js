@@ -14,7 +14,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // const { NODE_ENV, MONGODB_URI } = process.env;
 // const { MONGODB_URI, PORT = 3000 } = process.env;
-const { PORT = 3000 } = process.env;
+// const { PORT = 3000 } = process.env;
 
 // Загружаем переменные окружения из файла .env
 dotenv.config();
@@ -25,12 +25,16 @@ const NotFoundError = require('./errors/NotFoundErr');
 
 // mongoose.connect(NODE_ENV === 'production' ? MONGODB_URI : 'mongodb://localhost:27017/mestodb', {
 // mongoose.connect(process.env.MONGODB_URI, {
-mongoose.connect('mongodb://localhost:27017/mestodb', {
+const {
+  PORT = 3000,
+  MONGODB_URI = 'mongodb://127.0.0.1:27017/mestodb',
+} = process.env;
+// mongoose.connect('mongodb://localhost:27017/mestodb', {
 //   useNewUrlParser: true,
 // }).then(() => {
 //   console.log('Подключено к MongoDB');
 // });
-// mongoose.connect(MONGODB_URI || 'mongodb://localhost:27017/mestodb', {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
 }).then(() => {
   console.log('Подключено к MongoDB');
